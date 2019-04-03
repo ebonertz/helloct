@@ -7,7 +7,7 @@ import config  from './../config.js'
 const authMiddleware = createAuthMiddlewareForClientCredentialsFlow(config)
 
 const httpMiddleware = createHttpMiddleware({
-  host: 'https://api.sphere.io',
+  host: 'https://api.commercetools.co',
 })
 
 const client = createClient({
@@ -17,7 +17,8 @@ const client = createClient({
   ],
 })
 
-const requestBuilder = createRequestBuilder({ projectKey: '' })
+
+const requestBuilder = createRequestBuilder({ projectKey: config.projectKey })
 
 // Uses request builder helper to build custom uri
 const productsUri = requestBuilder.products

@@ -27,15 +27,17 @@
     "@commercetools/api-request-builder": "^3.1.1",
     "@commercetools/sdk-client": "^1.4.0",
     "@commercetools/sdk-middleware-auth": "latest",
-    "@commercetools/sdk-middleware-http": "^2.1.1",
-    "babel": "^6.23.0"
+    "@commercetools/sdk-middleware-http": "^2.1.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/polyfill": "^7.4.3",
+    "@babel/register": "^7.4.0",
     "babel-cli": "^6.26.0",
     "babel-preset-latest": "^6.24.1",
-    "babel-register": "^6.26.0",
+    "gulp": "^4.0.0",
     "gulp-babel": "^6.1.2",
-    "gulp-shell": "^0.6.3",
+    "gulp-shell": "^0.7.0",
     "run-sequence": "^1.2.2"
   }
 }
