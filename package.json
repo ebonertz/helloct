@@ -27,11 +27,13 @@
     "@commercetools/api-request-builder": "^3.1.1",
     "@commercetools/sdk-client": "^1.4.0",
     "@commercetools/sdk-middleware-auth": "latest",
-    "@commercetools/sdk-middleware-http": "^2.1.1"
+    "@commercetools/sdk-middleware-http": "^2.1.1",
+    "babel": "^6.23.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.24.1",
+    "babel-cli": "^6.26.0",
     "babel-preset-latest": "^6.24.1",
+    "babel-register": "^6.26.0",
     "gulp-babel": "^6.1.2",
     "gulp-shell": "^0.6.3",
     "run-sequence": "^1.2.2"
