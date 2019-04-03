@@ -1,7 +1,7 @@
 'use strict';
 
 const config = {
-  host: '',
+  host: 'https://auth.commercetools.co',
   projectKey: '',
   credentials: {
     clientId: '',

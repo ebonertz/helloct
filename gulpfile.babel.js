@@ -12,6 +12,4 @@ gulp.task('start', shell.task([
   'node dist/index.js'
 ]))
 
-gulp.task('default', () => {
-  run('build', 'start');
-})
+gulp.task('default', gulp.series('build','start'));
