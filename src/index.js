@@ -2,13 +2,12 @@ import { createClient } from '@commercetools/sdk-client'
 import { createAuthMiddlewareForClientCredentialsFlow } from '@commercetools/sdk-middleware-auth'
 import { createHttpMiddleware } from '@commercetools/sdk-middleware-http'
 import { createRequestBuilder } from '@commercetools/api-request-builder'
-import config  from './../config.js'
+import { config,host }  from '../config.js'
+import "babel-polyfill";
 
 const authMiddleware = createAuthMiddlewareForClientCredentialsFlow(config)
 
-const httpMiddleware = createHttpMiddleware({
-  host: 'https://api.commercetools.co',
-})
+const httpMiddleware = createHttpMiddleware(host)
 
 const client = createClient({
   middlewares: [
@@ -20,7 +19,7 @@ const client = createClient({
 
 const requestBuilder = createRequestBuilder({ projectKey: config.projectKey })
 
-// Uses request builder helper to build custom uri
+// Use request builder helper to build custom URIs
 const productsUri = requestBuilder.products
       .build()
 
@@ -45,17 +44,33 @@ const requestChannels = {
   method: 'GET'
 }
 
-const p1 = client.execute(requestCustomers)
-const p2 = client.execute(requestProducts)
-const p3 = client.execute(requestChannels)
+const getAllChannels = async() => {
+  let channels = '';
+  channels = await client.execute(requestChannels)
+    .then(response => response.body.results)
+    return channels
+}
 
-//Executes all the requests and returns promises containing all the responses
-Promise.all([p1,p2,p3])
-       .then((responses) => {
-         responses.forEach((response) => {
-          console.log(response.body.results)
-        });
-       })
-       .catch((reason) => {
-         console.log(reason)
-       })
+const getAllCustomers = async() => {
+  let customers = '';
+  customers = await client.execute(requestCustomers)
+   .then(response => response.body.results)
+  return customers
+}
+
+const getAllProducts = async() => {
+  let products = '';
+  products = await client.execute(requestProducts)
+    .then(response => response.body.results)
+  return products
+}
+
+getAllChannels()
+  .then((channels) => console.log("Channels:", channels))
+  .catch(err => console.log(err));
+getAllCustomers()
+  .then((customers) => console.log("Customers:", customers))
+  .catch(err => console.log(err));
+getAllProducts()
+  .then((products) => console.log("Products:", products))
+  .catch(err => console.log(err));

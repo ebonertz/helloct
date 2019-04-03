@@ -8,4 +8,9 @@ const config = {
     clientSecret: '',
   },
 }
-module.exports = config;
+
+const host = {
+  host: '',
+  }
+
+module.exports = {config, host};
