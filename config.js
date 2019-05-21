@@ -10,7 +10,7 @@ const config = {
 }
 
 const host = {
-  host: '',
+  host: 'https://api.commercetools.co',
   }
 
 module.exports = {config, host};
